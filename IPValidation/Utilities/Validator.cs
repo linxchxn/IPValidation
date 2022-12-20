@@ -19,7 +19,7 @@ namespace IPValidation.Utilities
         /// <returns>bool</returns>
         public static bool IsValidIP(string? ip)
         {
-            if (string.IsNullOrEmpty(ip) || !ip.Contains('.'))
+            if (string.IsNullOrEmpty(ip) || !ip.Contains('.') || ip.Contains('-') || ip.Contains('+'))
             {                
                 return false;
             }

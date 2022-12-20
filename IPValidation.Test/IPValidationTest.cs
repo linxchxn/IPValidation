@@ -54,7 +54,23 @@ namespace IPValidation.Test
         [Fact]
         public void IPValidate_Case_Invalid_With_Letters()
         {
-            var ip = "192.18.12.12.34";
+            var ip = "192.18.12.Abc";
+            var result = Validator.IsValidIP(ip);
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void IPValidate_Case_Invalid_Minus_Symbol()
+        {
+            var ip = "192.18.-12.12";
+            var result = Validator.IsValidIP(ip);
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void IPValidate_Case_Invalid_Plus_Symbol()
+        {
+            var ip = "192.18.+12.12";
             var result = Validator.IsValidIP(ip);
             Assert.False(result);
         }
